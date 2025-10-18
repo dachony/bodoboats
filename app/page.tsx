@@ -9,6 +9,8 @@ export default function Home() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const [language, setLanguage] = useState<'sr' | 'en' | 'ru' | 'de'>('sr');
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const galleryImages = Array.from({ length: 17 }, (_, i) => String(i + 1).padStart(3, '0'));
   const heroImages = ['001', '002', '003'];
@@ -178,6 +180,35 @@ export default function Home() {
 
   const t = translations[language];
 
+  // Swipe handler functions
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Swipe left - next image
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }
+    if (isRightSwipe) {
+      // Swipe right - previous image
+      setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+    }
+  };
+
   // Auto-play gallery carousel every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -221,7 +252,7 @@ export default function Home() {
               <li><a href="#gallery" className="text-gray-700 hover:text-orange-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.gallery}</a></li>
               <li><a href="#contact" className="bg-orange-500/90 text-white px-6 py-2 rounded-full hover:bg-orange-600 hover:scale-105 hover:shadow-lg transition-all duration-200 font-semibold shadow-md">{t.nav.contact}</a></li>
 
-              {/* Language Switcher */}
+              {/* Language Switcher - Desktop */}
               <li className="flex gap-1 border-l border-gray-300 pl-4">
                 <button onClick={() => setLanguage('sr')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'sr' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>SR</button>
                 <button onClick={() => setLanguage('en')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'en' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>EN</button>
@@ -230,19 +261,30 @@ export default function Home() {
               </li>
             </ul>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition text-gray-700"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+            {/* Mobile - Language Switcher + Menu Button */}
+            <div className="md:hidden flex items-center gap-2">
+              {/* Language Switcher - Mobile Compact */}
+              <div className="flex gap-1">
+                <button onClick={() => setLanguage('sr')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'sr' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>SR</button>
+                <button onClick={() => setLanguage('en')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'en' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>EN</button>
+                <button onClick={() => setLanguage('ru')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'ru' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>RU</button>
+                <button onClick={() => setLanguage('de')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'de' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>DE</button>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-lg hover:bg-gray-100 transition text-gray-700"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {mobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -437,7 +479,12 @@ export default function Home() {
 
           <div className="max-w-xl mx-auto">
             {/* Main Image Display */}
-            <div className="relative mb-2 group">
+            <div
+              className="relative mb-2 group"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <div className="relative w-full rounded-lg shadow-lg overflow-hidden">
                 <Image
                   src={`/assets/gallery/bodo540/gallery-${galleryImages[currentImageIndex]}.png`}
