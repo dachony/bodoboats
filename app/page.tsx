@@ -550,36 +550,31 @@ export default function Home() {
         {/* Lightbox Modal */}
         {isLightboxOpen && (
           <div
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4"
             onClick={() => setIsLightboxOpen(false)}
           >
-            <button
-              onClick={() => setIsLightboxOpen(false)}
-              className="absolute top-4 right-4 text-white hover:text-orange-400 transition"
-              aria-label="Zatvori"
+            <div
+              className="relative max-w-7xl w-full h-full flex items-center justify-center"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              onClick={(e) => e.stopPropagation()}
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <div className="relative max-w-7xl w-full h-full flex items-center justify-center">
               <Image
                 src={`/assets/gallery/bodo540/gallery-${galleryImages[currentImageIndex]}.png`}
                 alt={`BODO 540 - Slika ${galleryImages[currentImageIndex]}`}
                 fill
                 className="object-contain rounded-2xl"
                 sizes="100vw"
-                onClick={(e) => e.stopPropagation()}
               />
 
-              {/* Lightbox Navigation */}
+              {/* Lightbox Navigation Arrows - Hidden on mobile, visible on desktop */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
                 }}
-                className="absolute left-4 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition"
+                className="hidden sm:flex absolute left-4 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition items-center justify-center"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -590,13 +585,28 @@ export default function Home() {
                   e.stopPropagation();
                   setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
                 }}
-                className="absolute right-4 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition"
+                className="hidden sm:flex absolute right-4 bg-white/90 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg transition items-center justify-center"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
+
+            {/* Close Button - Bottom Right */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsLightboxOpen(false);
+              }}
+              className="mt-4 bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition shadow-lg flex items-center gap-2 font-semibold"
+              aria-label="Zatvori"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <span>Zatvori</span>
+            </button>
           </div>
         )}
       </section>
