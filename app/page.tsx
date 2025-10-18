@@ -372,45 +372,46 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-16 sm:py-20 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 lg:mb-16">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                {t.about.title}
-              </h2>
-              <div className="w-20 h-1 bg-orange-500/80 mx-auto mb-8"></div>
-            </div>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              {t.about.title}
+            </h2>
+            <div className="w-20 h-1 bg-orange-500/80 mx-auto mb-8"></div>
+          </div>
 
-            <div className="prose prose-lg max-w-none">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="space-y-6 mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
                 {t.about.text1}
               </p>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
                 {t.about.text2}
               </p>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-12">
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
                 {t.about.text3}
               </p>
+            </div>
 
-              {/* BODO 540 Section */}
-              <div className="bg-gradient-to-br from-gray-50 to-orange-50/20 rounded-2xl p-8 sm:p-12 mb-12">
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">BODO 540</h3>
+            {/* BODO 540 Section */}
+            <div className="bg-gradient-to-br from-gray-50 to-orange-50/20 rounded-2xl p-8 sm:p-12 mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">BODO 540</h3>
 
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  {t.about.bodo540text1}
+              <p className="text-gray-700 leading-relaxed mb-6 text-justify">
+                {t.about.bodo540text1}
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-6 text-justify">
+                {t.about.bodo540text2}
+              </p>
+
+              <div className="bg-white/80 rounded-xl p-6 border-l-4 border-orange-500">
+                <p className="text-gray-700 leading-relaxed text-justify">
+                  {t.about.certificate}
                 </p>
-
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  {t.about.bodo540text2}
-                </p>
-
-                <div className="bg-white/80 rounded-xl p-6 border-l-4 border-orange-500">
-                  <p className="text-gray-700 leading-relaxed">
-                    {t.about.certificate}
-                  </p>
-                </div>
               </div>
+            </div>
 
               {/* Technical Specifications */}
               <div className="bg-gray-900 text-white rounded-xl p-5 sm:p-7">
@@ -458,7 +459,6 @@ export default function Home() {
                     <span className="text-orange-400 font-semibold">{t.about.certified}</span>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -664,7 +664,8 @@ export default function Home() {
                     </svg>
                     <div>
                       <p className="font-semibold text-gray-900">{t.contact.phone}</p>
-                      <a href="tel:+381638087748" className="text-orange-500 hover:text-orange-600 transition">+381 63 8087748</a>
+                      <a href="tel:+381638087748" className="text-orange-500 hover:text-orange-600 transition">+381 63 8087748</a><br/>
+                      <a href="tel:+381691548685" className="text-orange-500 hover:text-orange-600 transition">+381 69 1548685</a>
                     </div>
                   </div>
 
@@ -767,6 +768,7 @@ export default function Home() {
                 <li><a href="mailto:bodoboats@gmail.com" className="hover:text-orange-400 transition">bodoboats@gmail.com</a></li>
                 <li><a href="mailto:info@bodoboats.com" className="hover:text-orange-400 transition">info@bodoboats.com</a></li>
                 <li><a href="tel:+381638087748" className="hover:text-orange-400 transition">+381 63 8087748</a></li>
+                <li><a href="tel:+381691548685" className="hover:text-orange-400 transition">+381 69 1548685</a></li>
                 <li><a href="https://www.bodoboats.com" className="hover:text-orange-400 transition">www.bodoboats.com</a></li>
               </ul>
             </div>
