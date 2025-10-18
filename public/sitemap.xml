@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://bodoboats.com/</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://bodoboats.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bodoboats.com/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://bodoboats.com/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://bodoboats.com/" />
+
+    <!-- Images for homepage -->
+    <image:image>
+      <image:loc>https://bodoboats.com/assets/bodo-logo-green.png</image:loc>
+      <image:title>BODO Boats Logo</image:title>
+      <image:caption>BODO Boats - Proizvodnja čamaca</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bodoboats.com/assets/gallery/bodo540/gallery-540-001.png</image:loc>
+      <image:title>BODO 540 čamac</image:title>
+      <image:caption>CE sertifikovan čamac BODO 540</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

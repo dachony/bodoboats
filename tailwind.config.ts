@@ -11,6 +11,12 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        green: {
+          50: '#e8f5ea',
+          400: '#6bc47d',
+          500: '#4ea262',
+          600: '#3d8a4f',
+        },
       },
     },
   },

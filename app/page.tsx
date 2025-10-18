@@ -12,7 +12,7 @@ export default function Home() {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  const galleryImages = Array.from({ length: 17 }, (_, i) => String(i + 1).padStart(3, '0'));
+  const galleryImages = Array.from({ length: 16 }, (_, i) => String(i + 1).padStart(3, '0'));
   const heroImages = ['001', '002', '003'];
 
   const translations = {
@@ -230,16 +230,16 @@ export default function Home() {
       {/* Modern Header with Mobile Menu */}
       <header className="fixed top-0 left-0 right-0 bg-gray-50/95 backdrop-blur-sm shadow-md z-50 border-b border-gray-200">
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 lg:h-16">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <a href="#home" className="block">
                 <Image
-                  src="/assets/bodo-logo-orange.png"
+                  src="/assets/hero/bodo-logo-green-glow.png"
                   alt="Bodo Boats Logo"
-                  width={200}
-                  height={66}
-                  className="h-8 lg:h-12 w-auto object-contain"
+                  width={400}
+                  height={132}
+                  className="h-11 lg:h-16 w-auto object-contain"
                   priority
                 />
               </a>
@@ -247,17 +247,17 @@ export default function Home() {
 
             {/* Desktop Navigation */}
             <ul className="hidden md:flex items-center gap-6">
-              <li><a href="#home" className="text-gray-700 hover:text-orange-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.home}</a></li>
-              <li><a href="#about" className="text-gray-700 hover:text-orange-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.about}</a></li>
-              <li><a href="#gallery" className="text-gray-700 hover:text-orange-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.gallery}</a></li>
-              <li><a href="#contact" className="bg-orange-500/90 text-white px-6 py-2 rounded-full hover:bg-orange-600 hover:scale-105 hover:shadow-lg transition-all duration-200 font-semibold shadow-md">{t.nav.contact}</a></li>
+              <li><a href="#home" className="text-gray-700 hover:text-green-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.home}</a></li>
+              <li><a href="#about" className="text-gray-700 hover:text-green-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.about}</a></li>
+              <li><a href="#gallery" className="text-gray-700 hover:text-green-500 hover:scale-105 transition-all duration-200 font-medium">{t.nav.gallery}</a></li>
+              <li><a href="#contact" className="bg-green-500/90 text-white px-6 py-2 rounded-full hover:bg-green-600 hover:scale-105 hover:shadow-lg transition-all duration-200 font-semibold shadow-md">{t.nav.contact}</a></li>
 
               {/* Language Switcher - Desktop */}
               <li className="flex gap-1 border-l border-gray-300 pl-4">
-                <button onClick={() => setLanguage('sr')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'sr' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>SR</button>
-                <button onClick={() => setLanguage('en')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'en' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>EN</button>
-                <button onClick={() => setLanguage('ru')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'ru' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>RU</button>
-                <button onClick={() => setLanguage('de')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'de' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>DE</button>
+                <button onClick={() => setLanguage('sr')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'sr' ? 'bg-green-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>SR</button>
+                <button onClick={() => setLanguage('en')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'en' ? 'bg-green-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>EN</button>
+                <button onClick={() => setLanguage('ru')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'ru' ? 'bg-green-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>RU</button>
+                <button onClick={() => setLanguage('de')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'de' ? 'bg-green-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>DE</button>
               </li>
             </ul>
 
@@ -265,10 +265,10 @@ export default function Home() {
             <div className="md:hidden flex items-center gap-2">
               {/* Language Switcher - Mobile Compact */}
               <div className="flex gap-1">
-                <button onClick={() => setLanguage('sr')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'sr' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>SR</button>
-                <button onClick={() => setLanguage('en')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'en' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>EN</button>
-                <button onClick={() => setLanguage('ru')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'ru' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>RU</button>
-                <button onClick={() => setLanguage('de')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'de' ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'}`}>DE</button>
+                <button onClick={() => setLanguage('sr')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'sr' ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600'}`}>SR</button>
+                <button onClick={() => setLanguage('en')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'en' ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600'}`}>EN</button>
+                <button onClick={() => setLanguage('ru')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'ru' ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600'}`}>RU</button>
+                <button onClick={() => setLanguage('de')} className={`px-2 py-1 text-xs font-semibold rounded transition ${language === 'de' ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600'}`}>DE</button>
               </div>
 
               {/* Mobile Menu Button */}
@@ -291,10 +291,10 @@ export default function Home() {
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t border-gray-200">
               <ul className="space-y-4">
-                <li><a href="#home" className="block text-gray-700 hover:text-orange-500 transition font-medium">{t.nav.home}</a></li>
-                <li><a href="#about" className="block text-gray-700 hover:text-orange-500 transition font-medium">{t.nav.about}</a></li>
-                <li><a href="#gallery" className="block text-gray-700 hover:text-orange-500 transition font-medium">{t.nav.gallery}</a></li>
-                <li><a href="#contact" className="block bg-orange-500/90 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition text-center font-semibold">{t.nav.contact}</a></li>
+                <li><a href="#home" className="block text-gray-700 hover:text-green-500 transition font-medium">{t.nav.home}</a></li>
+                <li><a href="#about" className="block text-gray-700 hover:text-green-500 transition font-medium">{t.nav.about}</a></li>
+                <li><a href="#gallery" className="block text-gray-700 hover:text-green-500 transition font-medium">{t.nav.gallery}</a></li>
+                <li><a href="#contact" className="block bg-green-500/90 text-white px-6 py-2 rounded-full hover:bg-green-600 transition text-center font-semibold">{t.nav.contact}</a></li>
               </ul>
             </div>
           )}
@@ -334,7 +334,7 @@ export default function Home() {
               {/* Logo closer to text */}
               <div className="mb-6">
                 <Image
-                  src="/assets/hero/bodo-logo-orange-glow.png"
+                  src="/assets/hero/bodo-logo-green-glow.png"
                   alt="Bodo Boats Logo"
                   width={400}
                   height={133}
@@ -357,7 +357,7 @@ export default function Home() {
                     onClick={() => setCurrentHeroImage(index)}
                     className={`transition-all duration-300 ${
                       index === currentHeroImage
-                        ? 'w-8 h-2 bg-orange-500'
+                        ? 'w-8 h-2 bg-green-500'
                         : 'w-2 h-2 bg-white/50 hover:bg-white/80'
                     } rounded-full`}
                     aria-label={`Slide ${index + 1}`}
@@ -376,7 +376,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               {t.about.title}
             </h2>
-            <div className="w-20 h-1 bg-orange-500/80 mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-green-500/80 mx-auto mb-8"></div>
           </div>
 
           <div className="max-w-6xl mx-auto">
@@ -395,7 +395,7 @@ export default function Home() {
             </div>
 
             {/* BODO 540 Section */}
-            <div className="bg-gradient-to-br from-gray-50 to-orange-50/20 rounded-2xl p-8 sm:p-12 mb-12">
+            <div className="bg-gradient-to-br from-gray-50 to-green-50/20 rounded-2xl p-8 sm:p-12 mb-12">
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">BODO 540</h3>
 
               <p className="text-gray-700 leading-relaxed mb-6 text-justify">
@@ -406,7 +406,7 @@ export default function Home() {
                 {t.about.bodo540text2}
               </p>
 
-              <div className="bg-white/80 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-white/80 rounded-xl p-6 border-l-4 border-green-500">
                 <p className="text-gray-700 leading-relaxed text-justify">
                   {t.about.certificate}
                 </p>
@@ -421,42 +421,42 @@ export default function Home() {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                   <div className="text-center">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.length}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.length}</div>
                     <div className="text-xl font-bold">5,65m</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.width}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.width}</div>
                     <div className="text-xl font-bold">1,56m</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.depth}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.depth}</div>
                     <div className="text-xl font-bold">0,65m</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.weight}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.weight}</div>
                     <div className="text-xl font-bold">230kg</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.maxPower}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.maxPower}</div>
                     <div className="text-xl font-bold">50ks</div>
                     <div className="text-gray-400 text-xs">(37kw)</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.maxLoad}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.maxLoad}</div>
                     <div className="text-xl font-bold">550kg</div>
                   </div>
                   <div className="text-center sm:col-span-2 lg:col-span-3">
-                    <div className="text-orange-400 text-xs uppercase tracking-wide mb-1">{t.about.passengers}</div>
+                    <div className="text-green-400 text-xs uppercase tracking-wide mb-1">{t.about.passengers}</div>
                     <div className="text-xl font-bold">6</div>
                   </div>
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-                  <div className="inline-flex items-center gap-2 bg-orange-500/20 px-6 py-3 rounded-full">
-                    <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="inline-flex items-center gap-2 bg-green-500/20 px-6 py-3 rounded-full">
+                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-orange-400 font-semibold">{t.about.certified}</span>
+                    <span className="text-green-400 font-semibold">{t.about.certified}</span>
                   </div>
                 </div>
             </div>
@@ -471,7 +471,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               {t.gallery.title}
             </h2>
-            <div className="w-20 h-1 bg-orange-500/80 mx-auto mb-4"></div>
+            <div className="w-20 h-1 bg-green-500/80 mx-auto mb-4"></div>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               {t.gallery.subtitle}
             </p>
@@ -487,7 +487,7 @@ export default function Home() {
             >
               <div className="relative w-full rounded-lg shadow-lg overflow-hidden">
                 <Image
-                  src={`/assets/gallery/bodo540/gallery-${galleryImages[currentImageIndex]}.png`}
+                  src={`/assets/gallery/bodo540/gallery-540-${galleryImages[currentImageIndex]}.png`}
                   alt={`BODO 540 - Slika ${galleryImages[currentImageIndex]}`}
                   width={1200}
                   height={800}
@@ -528,12 +528,12 @@ export default function Home() {
                       onClick={() => setCurrentImageIndex(index)}
                       className={`relative flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded overflow-hidden transition-all ${
                         index === currentImageIndex
-                          ? 'ring-2 ring-orange-500 scale-105'
+                          ? 'ring-2 ring-green-500 scale-105'
                           : 'opacity-60 hover:opacity-100'
                       }`}
                     >
                       <Image
-                        src={`/assets/gallery/bodo540/gallery-${num}.png`}
+                        src={`/assets/gallery/bodo540/gallery-540-${num}.png`}
                         alt={`Thumbnail ${num}`}
                         fill
                         className="object-cover"
@@ -561,7 +561,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={`/assets/gallery/bodo540/gallery-${galleryImages[currentImageIndex]}.png`}
+                src={`/assets/gallery/bodo540/gallery-540-${galleryImages[currentImageIndex]}.png`}
                 alt={`BODO 540 - Slika ${galleryImages[currentImageIndex]}`}
                 fill
                 className="object-contain rounded-2xl"
@@ -599,7 +599,7 @@ export default function Home() {
                 e.stopPropagation();
                 setIsLightboxOpen(false);
               }}
-              className="mt-4 bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition shadow-lg flex items-center gap-2 font-semibold"
+              className="mt-4 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition shadow-lg flex items-center gap-2 font-semibold"
               aria-label="Zatvori"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
@@ -615,13 +615,13 @@ export default function Home() {
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-gray-50 to-orange-50/20 rounded-2xl p-8 sm:p-10 shadow-lg border border-orange-100">
+            <div className="bg-gradient-to-br from-gray-50 to-green-50/20 rounded-2xl p-8 sm:p-10 shadow-lg border border-green-50">
               <p className="text-lg sm:text-xl text-gray-700 leading-relaxed text-center mb-6">
                 {t.welcome.text}
               </p>
               <div className="text-right">
                 <p className="text-base sm:text-lg text-gray-700 italic">{t.welcome.signature}</p>
-                <p className="text-lg sm:text-xl font-semibold text-orange-500">{t.welcome.company}</p>
+                <p className="text-lg sm:text-xl font-semibold text-green-500">{t.welcome.company}</p>
               </div>
             </div>
           </div>
@@ -635,7 +635,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               {t.contact.title}
             </h2>
-            <div className="w-20 h-1 bg-orange-500/80 mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-green-500/80 mx-auto mb-8"></div>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -648,34 +648,33 @@ export default function Home() {
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <div>
                       <p className="font-semibold text-gray-900">{t.contact.email}</p>
-                      <a href="mailto:bodoboats@gmail.com" className="text-orange-500 hover:text-orange-600 transition">bodoboats@gmail.com</a><br/>
-                      <a href="mailto:info@bodoboats.com" className="text-orange-500 hover:text-orange-600 transition">info@bodoboats.com</a>
+                      <a href="mailto:bodoboats@gmail.com" className="text-green-500 hover:text-green-600 transition">bodoboats@gmail.com</a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <div>
                       <p className="font-semibold text-gray-900">{t.contact.phone}</p>
-                      <a href="tel:+381638087748" className="text-orange-500 hover:text-orange-600 transition">+381 63 8087748</a><br/>
-                      <a href="tel:+381691548685" className="text-orange-500 hover:text-orange-600 transition">+381 69 1548685</a>
+                      <a href="tel:+381638087748" className="text-green-500 hover:text-green-600 transition">+381 63 8087748</a><br/>
+                      <a href="tel:+381691548685" className="text-green-500 hover:text-green-600 transition">+381 69 1548685</a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
                     <div>
                       <p className="font-semibold text-gray-900">{t.contact.web}</p>
-                      <a href="https://www.bodoboats.com" className="text-orange-500 hover:text-orange-600 transition">www.bodoboats.com</a>
+                      <a href="https://www.bodoboats.com" className="text-green-500 hover:text-green-600 transition">www.bodoboats.com</a>
                     </div>
                   </div>
 
@@ -683,10 +682,10 @@ export default function Home() {
                     <div>
                       <p className="font-semibold text-gray-900 mb-2">{t.contact.social}</p>
                       <div className="flex gap-3">
-                        <a href="https://www.facebook.com/profile.php?id=100076453789362" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition text-white">
+                        <a href="https://www.facebook.com/profile.php?id=100076453789362" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition text-white">
                           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="https://www.instagram.com/bodo_boats" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition text-white">
+                        <a href="https://www.instagram.com/bodo_boats" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition text-white">
                           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
                       </div>
@@ -714,7 +713,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <a
                 href="tel:+381638087748"
-                className="inline-flex items-center justify-center gap-2 bg-white text-orange-500 border-2 border-orange-500 px-10 py-4 rounded-full hover:bg-orange-50 hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg"
+                className="inline-flex items-center justify-center gap-2 bg-white text-green-500 border-2 border-green-500 px-10 py-4 rounded-full hover:bg-green-50 hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -722,8 +721,8 @@ export default function Home() {
                 {language === 'sr' ? 'Pozovite nas' : language === 'en' ? 'Call us' : language === 'ru' ? 'Позвоните нам' : 'Rufen Sie uns an'}
               </a>
               <a
-                href="mailto:bodoboats@gmail.com,info@bodoboats.com?subject=Zanima%20me%20Bodo%20%C4%8Damac"
-                className="inline-flex items-center justify-center gap-2 bg-orange-500/90 text-white px-10 py-4 rounded-full hover:bg-orange-600 hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg"
+                href="mailto:bodoboats@gmail.com?subject=Zanima%20me%20Bodo%20%C4%8Damac"
+                className="inline-flex items-center justify-center gap-2 bg-green-500/90 text-white px-10 py-4 rounded-full hover:bg-green-600 hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -741,7 +740,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <div>
               <Image
-                src="/assets/hero/bodo-logo-orange-glow.png"
+                src="/assets/hero/bodo-logo-green-glow.png"
                 alt="Bodo Boats Logo"
                 width={150}
                 height={50}
@@ -755,32 +754,31 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4 text-white">{t.footer.links}</h4>
               <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><a href="#home" className="hover:text-orange-400 transition">{t.nav.home}</a></li>
-                <li><a href="#about" className="hover:text-orange-400 transition">{t.nav.about}</a></li>
-                <li><a href="#gallery" className="hover:text-orange-400 transition">{t.nav.gallery}</a></li>
-                <li><a href="#contact" className="hover:text-orange-400 transition">{t.nav.contact}</a></li>
+                <li><a href="#home" className="hover:text-green-400 transition">{t.nav.home}</a></li>
+                <li><a href="#about" className="hover:text-green-400 transition">{t.nav.about}</a></li>
+                <li><a href="#gallery" className="hover:text-green-400 transition">{t.nav.gallery}</a></li>
+                <li><a href="#contact" className="hover:text-green-400 transition">{t.nav.contact}</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4 text-white">{t.contact.title}</h4>
               <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><a href="mailto:bodoboats@gmail.com" className="hover:text-orange-400 transition">bodoboats@gmail.com</a></li>
-                <li><a href="mailto:info@bodoboats.com" className="hover:text-orange-400 transition">info@bodoboats.com</a></li>
-                <li><a href="tel:+381638087748" className="hover:text-orange-400 transition">+381 63 8087748</a></li>
-                <li><a href="tel:+381691548685" className="hover:text-orange-400 transition">+381 69 1548685</a></li>
-                <li><a href="https://www.bodoboats.com" className="hover:text-orange-400 transition">www.bodoboats.com</a></li>
+                <li><a href="mailto:bodoboats@gmail.com" className="hover:text-green-400 transition">bodoboats@gmail.com</a></li>
+                <li><a href="tel:+381638087748" className="hover:text-green-400 transition">+381 63 8087748</a></li>
+                <li><a href="tel:+381691548685" className="hover:text-green-400 transition">+381 69 1548685</a></li>
+                <li><a href="https://www.bodoboats.com" className="hover:text-green-400 transition">www.bodoboats.com</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4 text-white">{t.contact.social}</h4>
               <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=100076453789362" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500/80 transition">
+                <a href="https://www.facebook.com/profile.php?id=100076453789362" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500/80 transition">
                   <span className="sr-only">Facebook</span>
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/bodo_boats" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500/80 transition">
+                <a href="https://www.instagram.com/bodo_boats" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500/80 transition">
                   <span className="sr-only">Instagram</span>
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
